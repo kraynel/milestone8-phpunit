@@ -1,9 +1,9 @@
 {
-    "name": "kevinr/mileston8-phpunit",
-    "description": "",
-    "keywords": [ ],
-    "homepage": "http://github.com/kraynel",
-    "license": "",
+    "name": "kevinr/milestone8-phpunit",
+    "description": "TDD from http://osherove.com/tdd-kata-1/ and http://osherove.com/tdd-kata-2/",
+    "keywords": [ "TDD" ],
+    "homepage": "http://github.com/kraynel/milestone8-phpunit",
+    "license": "WTFPL",
     "authors": [
         {
             "name": "Kevin Raynel",

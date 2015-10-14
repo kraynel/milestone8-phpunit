@@ -3,6 +3,9 @@ namespace Demo;
 
 class Calculator
 {
+	/** @var ILogger */
+	private static $logger;
+	
 	const NEGATIVE_NOT_ALLOWED_MSG = "negatives not allowed : ";
 	const LIMIT = 1000;
 
@@ -48,7 +51,28 @@ class Calculator
 		}
 
 		$filteredIntArray = array_filter($intArray, array($this, 'isSmallerThanLimit'));
-		return array_sum($filteredIntArray);
+		$total = array_sum($filteredIntArray);
+		self::getLogger()->write($total);
+		return $total;
+	}
+
+	/**
+	 * @return void
+	 */
+	public static function setLogger(ILogger $logger)
+	{
+		self::$logger = $logger;
+	}
+
+	/**
+	 * @return ILogger
+	 */
+	public static function getLogger()
+	{
+		if (!self::$logger) {
+			self::$logger = new Logger();
+		}
+		return self::$logger;
 	}
 
 

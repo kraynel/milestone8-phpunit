@@ -93,4 +93,24 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
 		$a = new Calculator();
 		$this->assertEquals(6, $a->Add("//[!!][%%%]\n1!!2%%%3")); 
 	}
+
+
+	/************
+
+	PART 2
+
+	*************/
+
+	public function testLoggingSimpleAdd()
+	{
+		$a = new Calculator();
+		$mockedLogger = $this->getMockBuilder('Demo\ILogger')->getMock();
+		$mockedLogger->expects($this->once())
+                 ->method('write')
+                 ->with($this->equalTo('6'));
+
+        Calculator::setLogger($mockedLogger);
+		$a->Add("2,4");
+	}
+
 }
